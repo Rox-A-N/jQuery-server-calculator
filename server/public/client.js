@@ -3,6 +3,7 @@ console.log('This will be my Calculator!');
 $(onReady);
 
 function onReady() {
+    getSubmit();
     $('#addition').on('click', add);
     $('#subtract').on('click', subtract);
     $('#multiply').on('click', multiply);
@@ -28,12 +29,35 @@ function submit() {
     console.log('This is the object ', equation);
     $.ajax({
         method: 'POST', //using ajax to POST (send) info to the server
-        url: '/operations', //this is the url path where the data is being retrieved from on the server. We wait for the response from the server...
+        url: '/operations', //this is the url path where the data is being sent to the server. We wait for the response from the server...
         data: equation,     // accessing the object equation
     }).then(function (response){
         console.log('post request response:', response);
     });
 }   // end submit
+
+function getSubmit() {
+    // this is where we GET the response from our server
+    $.ajax({
+        method: 'GET',      // get method on the url
+        url: '/operations',
+    }).then(function(response) {        // response from server
+        console.log( 'response from the server ', response);
+        appendToDom(response);
+    });
+}   // end getSubmit
+
+function appendToDom() {
+    console.log('appendToDom ', array );
+    $('#result').empty();
+    for(let item of array) {
+        $('#result').append(`
+        <li>${item.data}</li>
+        `)
+    }
+}   // end appendToDom
+
+
 
 function add() {
     equation.operand = 'add';

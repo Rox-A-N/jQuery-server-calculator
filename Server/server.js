@@ -13,7 +13,7 @@ app.listen(PORT, () => {
 
 
 
-app.post('/operations', (req, res) => {
+app.post('/operations', (req, res) => {     // post request function
     // console.log(req.body);
     if (req.body.operand === 'add') {
         sum = Number(req.body.num1) + Number(req.body.num2);
