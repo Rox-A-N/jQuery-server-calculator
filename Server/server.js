@@ -18,8 +18,16 @@ app.post('/operations', (req, res) => {
     if (req.body.operand === 'add') {
         sum = Number(req.body.num1) + Number(req.body.num2);
         console.log(sum);
+    } else if (req.body.operand === 'subtract') {
+        difference = Number(req.body.num1) - Number(req.body.num2);
+        console.log(difference);
+    } else if (req.body.operand === 'multiply') {
+        product = Number(req.body.num1) * Number(req.body.num2);
+        console.log(product);
+    }else if (req.body.operand === 'divide') {
+        dividend = Number(req.body.num1) / Number(req.body.num2);
+        console.log(dividend);
     }
-
     res.sendStatus(201);  // 201 means created
 });     
 

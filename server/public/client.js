@@ -41,7 +41,13 @@ function add() {
 } // end add
 
 function subtract() {
-    equation.operand = 'subtract'
+    equation.operand = 'subtract';
 }   // end subtract
 
+function multiply() {
+    equation.operand = 'multiply';
+}   // end multiply
 
+function divide () {
+    equation.operand = 'divide';
+}
