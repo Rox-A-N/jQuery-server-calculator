@@ -33,7 +33,8 @@ function submit() {
         data: equation,     // accessing the object equation
     }).then(function (response){
         console.log('post request response:', response);
-    });
+    }); 
+    getSubmit();    // have to run function here otherwise action only happens on refresh
 }   // end submit
 
 function getSubmit() {
@@ -47,14 +48,14 @@ function getSubmit() {
     });
 }   // end getSubmit
 
-function appendToDom() {
-    console.log('appendToDom ', array );
+function appendToDom(array) {
+    console.log('appendToDom ', array);
     $('#result').empty();
-    for(let item of array) {
+     for(let equation of array) {
         $('#result').append(`
-        <li>${item.data}</li>
+        <li>${equation.results}</li>
         `)
-    }
+     }
 }   // end appendToDom
 
 
