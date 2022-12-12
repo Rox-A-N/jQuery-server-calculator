@@ -9,6 +9,7 @@ function onReady() {
     $('#multiply').on('click', multiply);
     $('#divide').on('click', divide);   
     $('#submit').on('click', submit);
+    $('#clear ').on('click', clear);
 }
 
 
@@ -58,6 +59,12 @@ function appendToDom(array) {
      }
 }   // end appendToDom
 
+function clear() {
+    console.log('in the clear button function');
+    //will clear the inputs on click
+    $('#num1').val('');
+    $('#num2').val('');
+}   // end clear
 
 
 function add() {
